@@ -3,6 +3,7 @@ import WeatherCard from './WeatherCard';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { useGeolocated } from "react-geolocated";
+import './WeatherList.css';
 
 const WeatherList = () => {
 
@@ -69,8 +70,8 @@ const WeatherList = () => {
     return (
         <section>
             <article>
-                <form onSubmit={handleSubmit}>
-                    <div>
+                <form onSubmit={handleSubmit} className='inputForm'>
+                    <div className='inputsContainer'>
                         <label htmlFor='cityInput'>Check the weather in: </label>
                         <input type="text" name='locationCity' />
                         <button>Search</button>
@@ -78,8 +79,8 @@ const WeatherList = () => {
                     </div>
                 </form>
             </article>
-            <article>
-            <h2>Weather in {value}</h2>
+            <article className='cardsContainer'>
+            <h2 className='locationH2'>Weather in {value}</h2>
             {weatherInfo.length !== 0 ? renderWeatherCards() : <p>Loading...</p>}
             </article>
         </section>

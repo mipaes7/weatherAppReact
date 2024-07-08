@@ -1,4 +1,5 @@
 import React from "react";
+import './WeatherCard.css'
 
 const WeatherCard = ({
   dataItem: {
@@ -36,9 +37,9 @@ const WeatherCard = ({
     return directions[index];
   };
 
-  return <article>
-    <h2>{dt_txt}</h2>
-    <div>
+  return <article className="weatherCard">
+    <h2 className="dateH2">{dt_txt}</h2>
+    <div className="tempContainer">
       <p>
         Avg. Temp. (Cº): {convertToCelsius(temp)}
       </p>
@@ -49,7 +50,7 @@ const WeatherCard = ({
         Min. Temp. (Cº): {convertToCelsius(temp_min)}
       </p>
     </div>
-    <div>
+    <div className="weatherContainer">
       <p>
         General: {main}
       </p>
@@ -58,7 +59,7 @@ const WeatherCard = ({
       </p>
       <img src={img_url} alt={description} />
     </div>
-    <div>
+    <div className="windContainer">
       <p>
         Wind Speed (Km/h): {convertToKMH(speed)}
       </p>
